@@ -1,82 +1,58 @@
-# Lightweight React Template for KAVIA
+# Next.js Data Explorer (Ocean Professional)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+Minimal, responsive data explorer built with Next.js and React. A left-aligned sidebar lists MongoDB collections; the main area displays tabular data fetched from the backend. Styled with the Ocean Professional theme for a clean, classic look.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Sidebar navigation for collections (collection1, collection2)
+- Responsive, minimal UI with subtle shadows and clear sectioning
+- Dynamic table columns inferred from data
+- Client-side fetching from Express backend
+- Theme: Ocean Professional (primary `#1E3A8A`, secondary `#F59E0B`)
 
 ## Getting Started
 
-In the project directory, you can run:
+1) Install dependencies
 
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```bash
+npm install
 ```
 
-### Components
+2) Configure the backend URL  
+Create a `.env` file from `.env.example` and set:
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+```
+NEXT_PUBLIC_BACKEND_URL=https://your-backend-host:3001
+```
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+3) Run the dev server
 
-## Learn More
+```bash
+npm run dev
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Open http://localhost:3000 to view the app.
 
-### Code Splitting
+4) Build and run in production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm run build
+npm start
+```
 
-### Analyzing the Bundle Size
+## Styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+All styles live in `app/globals.css` using CSS variables based on the Ocean Professional palette:
 
-### Making a Progressive Web App
+- primary: `#1E3A8A`
+- secondary: `#F59E0B`
+- background: `#F3F4F6`
+- surface: `#FFFFFF`
+- text: `#111827`
+- success: `#059669`
+- error: `#DC2626`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Notes
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Ensure CORS is enabled on the backend for the frontend origin if hosting separately.
+- Linting is ignored during production builds via `next.config.js` to avoid CI failures unrelated to functionality.
